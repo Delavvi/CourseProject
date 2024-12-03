@@ -1,0 +1,16 @@
+C:\Users\MCS\source\repos\CourseProject\CourseProject\bin\Debug\net8.0-windows\CourseProject.exe
+C:\Users\MCS\source\repos\CourseProject\CourseProject\bin\Debug\net8.0-windows\CourseProject.deps.json
+C:\Users\MCS\source\repos\CourseProject\CourseProject\bin\Debug\net8.0-windows\CourseProject.runtimeconfig.json
+C:\Users\MCS\source\repos\CourseProject\CourseProject\bin\Debug\net8.0-windows\CourseProject.dll
+C:\Users\MCS\source\repos\CourseProject\CourseProject\bin\Debug\net8.0-windows\CourseProject.pdb
+C:\Users\MCS\source\repos\CourseProject\CourseProject\obj\Debug\net8.0-windows\CourseProject.Form1.resources
+C:\Users\MCS\source\repos\CourseProject\CourseProject\obj\Debug\net8.0-windows\CourseProject.csproj.GenerateResource.cache
+C:\Users\MCS\source\repos\CourseProject\CourseProject\obj\Debug\net8.0-windows\CourseProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MCS\source\repos\CourseProject\CourseProject\obj\Debug\net8.0-windows\CourseProject.AssemblyInfoInputs.cache
+C:\Users\MCS\source\repos\CourseProject\CourseProject\obj\Debug\net8.0-windows\CourseProject.AssemblyInfo.cs
+C:\Users\MCS\source\repos\CourseProject\CourseProject\obj\Debug\net8.0-windows\CourseProject.csproj.CoreCompileInputs.cache
+C:\Users\MCS\source\repos\CourseProject\CourseProject\obj\Debug\net8.0-windows\CourseProject.dll
+C:\Users\MCS\source\repos\CourseProject\CourseProject\obj\Debug\net8.0-windows\refint\CourseProject.dll
+C:\Users\MCS\source\repos\CourseProject\CourseProject\obj\Debug\net8.0-windows\CourseProject.pdb
+C:\Users\MCS\source\repos\CourseProject\CourseProject\obj\Debug\net8.0-windows\CourseProject.genruntimeconfig.cache
+C:\Users\MCS\source\repos\CourseProject\CourseProject\obj\Debug\net8.0-windows\ref\CourseProject.dll
