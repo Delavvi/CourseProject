@@ -27,7 +27,7 @@ namespace CourseProject
 
             while (cur != null || nodes.Count > 0)
             {
-        
+
                 while (cur != null)
                 {
                     nodes.Push(cur);
@@ -198,7 +198,233 @@ namespace CourseProject
 
             this.Controls.Add(flowLayoutPanel);
         }
+
+        //----------------------найти---------------
+        public List<Node> FindDishes(string name)
+        {
+            List<Node> foundDishes = new List<Node>();
+            Stack<Node> nodes = new Stack<Node>();
+            Node cur = root;
+
+            while (cur != null || nodes.Count > 0)
+            {
+                while (cur != null)
+                {
+                    nodes.Push(cur);
+                    cur = cur.Left;
+                }
+
+                cur = nodes.Pop();
+                if (cur.Name.IndexOf(name, StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    foundDishes.Add(cur);
+                }
+                cur = cur.Right;
+            }
+
+            return foundDishes;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string name = txtSearch.Text.Trim();
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("Please enter a dish name to search.");
+                return;
+            }
+
+            List<Node> foundDishes = FindDishes(name);
+            if (foundDishes.Count > 0)
+            {
+                lblSearchResult.Text = "Found dishes:\n" + string.Join("\n", foundDishes.Select(d => $"{d.Name}, Price: {d.Value}"));
+                DisplayCards(foundDishes);
+            }
+            else
+            {
+                lblSearchResult.Text = "No dishes found.";
+            }
+
+        }
+
+        //----------------------добавить----------------
+        private void btnAddDish_Click(object sender, EventArgs e)
+        {
+            string input = txtNewDish.Text.Trim();
+            if (string.IsNullOrEmpty(input))
+            {
+                MessageBox.Show("Введите данные блюда.");
+                return;
+            }
+
+            string[] parts = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length != 3)
+            {
+                MessageBox.Show("Неверный формат. Введите данные в формате: Название Цена Ссылка.");
+                return;
+            }
+
+            string name = parts[0];
+            if (!int.TryParse(parts[1], out int price))
+            {
+                MessageBox.Show("Цена должна быть числом.");
+                return;
+            }
+            string url = parts[2];
+
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), FileName);
+            using (StreamWriter writer = new StreamWriter(filePath, append: true))
+            {
+                writer.WriteLine($"{name} {price} {url}");
+            }
+
+            Node newNode = new Node(name, price, url);
+            AddNodeToTree(newNode);
+
+            TreeCreation();
+            List<Node> results = new List<Node>();
+            Stack<Node> nodes = new Stack<Node>();
+            Node cur = root;
+
+            while (cur != null || nodes.Count > 0)
+            {
+                while (cur != null)
+                {
+                    nodes.Push(cur);
+                    cur = cur.Left;
+                }
+
+                cur = nodes.Pop();
+                results.Add(cur);
+                cur = cur.Right;
+            }
+            DisplayCards(results);
+        }
+
+        private void AddNodeToTree(Node newNode)
+        {
+            if (root == null)
+            {
+                root = newNode;
+                return;
+            }
+
+            Node cur = root;
+            while (cur != null)
+            {
+                if (cur < newNode)
+                {
+                    if (cur.Right != null)
+                    {
+                        cur = cur.Right;
+                    }
+                    else
+                    {
+                        cur.Right = newNode;
+                        break;
+                    }
+                }
+                else
+                {
+                    if (cur.Left != null)
+                    {
+                        cur = cur.Left;
+                    }
+                    else
+                    {
+                        cur.Left = newNode;
+                        break;
+                    }
+                }
+            }
+
+        }
+        //---------------------удалить------------------
+
+        private void DeleteDishFromFile(string name, int price)
+        {
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string filePath = Path.Combine(currentDirectory, FileName);
+
+            try
+            {
+                List<string> lines = new List<string>();
+
+                using (StreamReader reader = new StreamReader(filePath))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        string[] parts = line.Split(' ');
+                        if (parts.Length == 3 && parts[0] == name && int.TryParse(parts[1], out int filePrice) && filePrice == price)
+                        {
+                            continue;
+                        }
+
+                        lines.Add(line);
+                    }
+                }
+
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    foreach (string line in lines)
+                    {
+                        writer.WriteLine(line);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error deleting dish from file: {ex.Message}");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string input = txtDelete.Text.Trim();
+            string[] parts = input.Split(' ');
+
+            if (parts.Length != 2)
+            {
+                MessageBox.Show("Please enter both dish name and price (e.g., 'Pizza 123').");
+                return;
+            }
+
+            string name = parts[0];
+            if (!int.TryParse(parts[1], out int price))
+            {
+                MessageBox.Show("Invalid price format. Please enter a valid number for the price.");
+                return;
+            }
+
+            DeleteDishFromFile(name, price);
+
+            TreeCreation();
+            List<Node> results = new List<Node>();
+            Stack<Node> nodes = new Stack<Node>();
+            Node cur = root;
+
+            while (cur != null || nodes.Count > 0)
+            {
+                while (cur != null)
+                {
+                    nodes.Push(cur);
+                    cur = cur.Left;
+                }
+
+                cur = nodes.Pop();
+                results.Add(cur);
+                cur = cur.Right;
+            }
+
+            DisplayCards(results);
+            MessageBox.Show($"Dish '{name}' with price {price} has been deleted.");
+        }
+
     }
+}
+
+
 
     public class Node
     {
@@ -235,5 +461,7 @@ namespace CourseProject
             return a.Value > b.Value;
         }
     }
-}
+
+
+
 
