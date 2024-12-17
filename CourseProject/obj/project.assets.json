@@ -8,19 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\MCS\\.nuget\\packages\\": {}
+    "C:\\Users\\Nika\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MCS\\source\\repos\\CourseProject\\CourseProject\\CourseProject.csproj",
+      "projectUniqueName": "D:\\Hard\\CourseProject\\CourseProject\\CourseProject.csproj",
       "projectName": "CourseProject",
-      "projectPath": "C:\\Users\\MCS\\source\\repos\\CourseProject\\CourseProject\\CourseProject.csproj",
-      "packagesPath": "C:\\Users\\MCS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MCS\\source\\repos\\CourseProject\\CourseProject\\obj\\",
+      "projectPath": "D:\\Hard\\CourseProject\\CourseProject\\CourseProject.csproj",
+      "packagesPath": "C:\\Users\\Nika\\.nuget\\packages\\",
+      "outputPath": "D:\\Hard\\CourseProject\\CourseProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\MCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nika\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -28,6 +28,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
