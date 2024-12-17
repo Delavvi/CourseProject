@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MCS\\source\\repos\\CourseProject\\CourseProject\\CourseProject.csproj": {}
+    "C:\\Users\\38066\\Source\\Repos\\CourseProject\\CourseProject\\CourseProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MCS\\source\\repos\\CourseProject\\CourseProject\\CourseProject.csproj": {
+    "C:\\Users\\38066\\Source\\Repos\\CourseProject\\CourseProject\\CourseProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MCS\\source\\repos\\CourseProject\\CourseProject\\CourseProject.csproj",
+        "projectUniqueName": "C:\\Users\\38066\\Source\\Repos\\CourseProject\\CourseProject\\CourseProject.csproj",
         "projectName": "CourseProject",
-        "projectPath": "C:\\Users\\MCS\\source\\repos\\CourseProject\\CourseProject\\CourseProject.csproj",
-        "packagesPath": "C:\\Users\\MCS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MCS\\source\\repos\\CourseProject\\CourseProject\\obj\\",
+        "projectPath": "C:\\Users\\38066\\Source\\Repos\\CourseProject\\CourseProject\\CourseProject.csproj",
+        "packagesPath": "C:\\Users\\38066\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\38066\\Source\\Repos\\CourseProject\\CourseProject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\MCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\38066\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,12 +42,19 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "DocumentFormat.OpenXml": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -63,7 +74,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
